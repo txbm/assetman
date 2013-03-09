@@ -24,17 +24,27 @@ class AssetMan(object):
 		bucket = s3ops.get_bucket(self.bucket_name, connection)
 		asset.generate_uuid()
 		s3ops.upload_string_data(bucket, asset.uuid, asset.data, asset.public, asset.mime_type, asset.meta_data)
+		return asset.uuid # just some api fluidics
 
 	def get_asset(self, uuid):
 		connection = self.connect()
 		bucket = s3ops.get_bucket(self.bucket_name, connection)
 		key = s3ops.get_key(bucket, uuid)
-		asset = Asset(key.get_contents_as_string())
+		asset_type = key.get_metadata('asset_type')
+		if asset_type == 'image':
+			asset = Image(key.get_contents_as_string())
+		else:
+			asset = Asset(key.get_contents_as_string())
 		acl = key.get_acl()
 		asset.url = key.generate_url(120)
 		asset.mime_type = key.content_type
 		asset.meta_data = key.metadata
 		return asset
+
+	def delete_asset(self, uuid):
+		connection = self.connect()
+		bucket = s3ops.get_bucket(self.bucket_name, connection)
+		s3ops.delete_key(bucket, uuid)
 
 class Asset(object):
 	mime_type = None
@@ -51,15 +61,19 @@ class Asset(object):
 
 	@property
 	def type(self):
-		return self.__class__.__name__.lower()
+		return self.meta_data['asset_type']
 
 class Image(Asset):
 
-	def __init__(self, data, height, width, mimetype):
-		super(self, Image).__init__(data)
-		self.meta_data['height'] = height
-		self.meta_data['width'] = width
-		self.mime_type = mimetype
+	def __init__(self, data, height=None, width=None, mimetype=None):
+		super(Image, self).__init__(data)
+		if height:
+			self.meta_data['height'] = height
+		if width:
+			self.meta_data['width'] = width
+		if mimetype:
+			self.mime_type = mimetype
+		self.meta_data['asset_type'] = 'image'
 
 	@property
 	def height(self):

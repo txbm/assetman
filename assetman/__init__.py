@@ -26,3 +26,8 @@ def get_asset(uuid):
 	if not manager:
 		raise model.NotConfigured()
 	return manager.get_asset(uuid)
+
+def delete_asset(uuid):
+	if not manager:
+		raise model.NotConfigured()
+	return manager.delete_asset(uuid)

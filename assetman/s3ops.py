@@ -19,7 +19,7 @@ def upload_string_data(bucket, path, string_data, public=False, mime_type=None, 
 	if public:
 		key.make_public()
 
-def delete_data(bucket, path):
+def delete_key(bucket, path):
 	key = bucket.get_key(path)
 	if key:
 		key.delete()
