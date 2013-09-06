@@ -1,7 +1,38 @@
 import uuid
-import s3ops
+
+from boto.s3.connection import S3Connection
 
 mime_type_asset_map = {}
+
+class Manager(object):
+
+	def __init__(self, ctx_pool=1, rr=True, split_size=None, public=True):
+		self._ctx_pool = ctx_pool
+		self._rr = rr
+		self._split_size = split_size
+		self._public = public
+
+	def authorize(self, key, secret):
+		self._key = key
+		self._secret = secret
+
+	def new_asset(self, data):
+
+class Connection(object):
+
+	def __init__(self, key, secret):
+		self._key = key
+		self._secret = secret
+
+	def _connect(self):
+		if self._connection is not None:
+			self._connection = 
+
+
+	def upload(self, data, **kwargs):
+
+
+
 
 class AssetMan(object):
 	aws_key = None

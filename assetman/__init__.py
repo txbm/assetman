@@ -1,5 +1,4 @@
-import model
-import s3ops
+from .model import AssetMan, Asset
 
 manager = None
 

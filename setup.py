@@ -22,7 +22,7 @@ This library uses the boto library for Amazon S3 and CloudFront support.
 from setuptools import setup, find_packages
 
 setup(
-	name='Assetman',
+	name='assetman',
 	version='0.1',
 	url='http://github.com/petermelias/assetman',
 	license='BSD',
