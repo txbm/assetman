@@ -1,5 +1,2 @@
-include setup.py
-include setup.cfg
 include README.md
-include LICENSE
-include assetman/*
+global-include *.py

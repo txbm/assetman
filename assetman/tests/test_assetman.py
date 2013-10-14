@@ -1,6 +1,7 @@
-import assetman
-from os import path
+# -*- coding: utf-8 -*-
+
 from nose.tools.trivial import assert_is_instance, assert_equal
+from os import path
 from wand.image import Image
 
 test_key = u'AKIAIV2YPEVVWTOK4I7A'

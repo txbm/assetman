@@ -1,14 +1,7 @@
-Installation:
+# Assetman
+[![Build Status](https://travis-ci.org/petermelias/assetman.png?branch=master)](https://travis-ci.org/petermelias/assetman) [![Coverage Status](https://coveralls.io/repos/petermelias/assetman/badge.png?branch=master)](https://coveralls.io/r/petermelias/assetman?branch=master) [![Downloads](https://pypip.in/d/assetman/badge.png)](https://crate.io/packages/assetman) [![Downloads](https://pypip.in/v/assetman/badge.png)](https://crate.io/packages/assetman)
 
-You guessed it...
-
-```python
-pip install assetman
-
-```
-
-The simplest incarnation of this library goes as follows:
-
+## Usage
 ```python
 import assetman
 
@@ -20,7 +13,7 @@ assetman.save_asset(asset)
 
 print asset.uuid # returns a 16 character UUID which you can save for later
 
-# then later
+# ... somewhere over the Mediterranean sea...
 
 my_saved_asset = assetman.get_asset(uuid)
 
@@ -33,7 +26,7 @@ of meta data and mimetypes.
 
 For example, the Image asset type will track format and dimensions for you.
 
-Here is an example from the test suite that uses Wand, which is a pretty sweet little library by the way. Rock on, South Korea.
+Here is an example from the test suite that uses Wand.
 
 ```python
 from wand.image import Image
@@ -51,14 +44,8 @@ with Image(filename=path.join(path.dirname(__file__), 'fixtures/faceoff.jpg')) a
 
 Basically the convience types just provide shortcutting for the meta data to be saved and retrieved.
 
-Enjoy! More convenience types / methods appreciated.
+## Testing
 
-Testing
-
-The tests are supposed to be run with nose. Wand is an optional dependency that is not included by default
-but will need to be in order to run the tests for the image suite. It is recommended that you install it.
-
-```python
-nosetests assetman/tests
-
-```
+To install with testing support: ``` pip install -e .[test] ```
+This will install with the optional dependencies required for testing. (wand, for example.)
+``` nosetests ```
