@@ -2,11 +2,11 @@
 
 import uuid
 
-_asset_type_map = {
-	'image': Image
-}
-
 def lookup_by_type(asset_type):
+	_asset_type_map = {
+		'image': Image
+	}
+
 	try:
 		return _asset_type_map[asset_type]
 	except KeyError: pass
@@ -15,12 +15,12 @@ def lookup_by_type(asset_type):
 
 class Asset(object):
 
-	def __init__(self, data=None):
+	def __init__(self, data=None, uuid=None):
 		self.data = data
 		self.mime_type = None
 		self.meta_data = {}
 		self.public = False
-		self._uuid = None
+		self._uuid = uuid
 
 	@property
 	def uuid(self):
