@@ -4,11 +4,7 @@ from setuptools import setup, find_packages
 
 setup(
 	name='assetman',
-<<<<<<< HEAD
 	version='0.0.2',
-=======
-	version='0.1',
->>>>>>> be87ffa6fa2fc0d0bca3ba570445746cacda6e26
 	url='http://github.com/petermelias/assetman',
 	license='BSD',
 	author='Peter M. Elias',
