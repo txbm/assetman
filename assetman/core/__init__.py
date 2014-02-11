@@ -22,12 +22,17 @@ class Assetman(object):
     def save_asset(self, asset):
         bucket = s3.get_bucket(self._bucket_name, self.connection)
         s3.upload_string_data(
-            bucket, asset.uuid, asset.data, asset.public, asset.mime_type, asset.meta_data)
+            bucket,
+            (asset.prefix or u'') + u'/' + unicode(asset.uuid),
+            asset.data,
+            asset.public,
+            asset.mime_type,
+            asset.meta_data)
         return asset
 
-    def get_asset(self, uuid):
+    def get_asset(self, uuid, prefix=None):
         bucket = s3.get_bucket(self._bucket_name, self.connection)
-        key = s3.get_key(bucket, uuid)
+        key = s3.get_key(bucket, (prefix or u'') + u'/' + unicode(uuid))
         if not key:
             return None
 
@@ -36,8 +41,12 @@ class Assetman(object):
         asset.url = key.generate_url(120)
         asset.mime_type = key.content_type
         asset.meta_data = key.metadata
+        asset._prefix = prefix
         return asset
 
-    def delete_asset(self, uuid):
+    def delete_asset(self, uuid, prefix=None):
         bucket = s3.get_bucket(self._bucket_name, self.connection)
-        s3.delete_key(bucket, uuid)
+        s3.delete_key(
+            bucket,
+            (prefix or u'') + u'/' + unicode(uuid)
+        )

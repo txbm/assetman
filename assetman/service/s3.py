@@ -14,7 +14,9 @@ def get_bucket(bucket_name, connection):
     return bucket
 
 
-def upload_string_data(bucket, path, string_data, public=False, mime_type=None, metadata=None):
+def upload_string_data(bucket, path, string_data, public=False,
+                       mime_type=None, metadata=None):
+
     key = Key(bucket, path)
     if mime_type:
         key.content_type = mime_type

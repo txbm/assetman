@@ -18,11 +18,12 @@ def lookup_by_type(asset_type):
 
 class Asset(object):
 
-    def __init__(self, data=None, uuid=None):
+    def __init__(self, data=None, uuid=None, prefix=None):
         self.data = data
         self.mime_type = None
         self.meta_data = {}
         self.public = False
+        self._prefix = prefix
         self._uuid = uuid
 
     @property
@@ -34,6 +35,13 @@ class Asset(object):
     @property
     def asset_type(self):
         return self.meta_data['asset_type']
+
+    @property
+    def prefix(self):
+        return self._prefix
+
+    def move(self, new_prefix):
+        raise NotImplementedError('Support for moving assets is coming soon!')
 
 
 class Image(Asset):
