@@ -1,9 +1,19 @@
 # Assetman
-[![Build Status](https://travis-ci.org/petermelias/assetman.png?branch=master)](https://travis-ci.org/petermelias/assetman) [![Coverage Status](https://coveralls.io/repos/petermelias/assetman/badge.png?branch=master)](https://coveralls.io/r/petermelias/assetman?branch=master) [![Downloads](https://pypip.in/d/assetman/badge.png)](https://crate.io/packages/assetman) [![Downloads](https://pypip.in/v/assetman/badge.png)](https://crate.io/packages/assetman)
+
+[![Latest Version](https://pypip.in/v/assetman/badge.png)](https://pypi.python.org/pypi/assetman/)
+[![Build Status](https://travis-ci.org/petermelias/assetman.png?branch=master)](https://travis-ci.org/petermelias/assetman)
+[![Montly Downloads](https://pypip.in/d/assetman/badge.png?month)](https://pypi.python.org/pypi/assetman)
+[![Download format](https://pypip.in/format/assetman/badge.png)](https://pypi.python.org/pypi/assetman/)
+[![Coverage Status](https://coveralls.io/repos/petermelias/assetman/badge.png?branch=master)](https://coveralls.io/r/petermelias/assetman?branch=master)
+[![License](https://pypip.in/license/assetman/badge.png)](https://pypi.python.org/pypi/assetman/)
+
 
 ## Usage
 ```python
-from assetman import init, create_blob
+from assetman import (
+	init, 
+	create_blob
+)
 
 manager = init(aws_key, aws_secret, my_bucket)
 some_data = 'my awsome string / image binary / html / markdown / national secrets'
