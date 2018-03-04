@@ -1,11 +1,11 @@
 # Assetman
 
-[![Latest Version](https://pypip.in/v/assetman/badge.png)](https://pypi.python.org/pypi/assetman/)
+[![Latest Version](https://img.shields.io/pypi/v/assetman.svg)](https://pypi.python.org/pypi/assetman/)
 [![Build Status](https://travis-ci.org/petermelias/assetman.png?branch=master)](https://travis-ci.org/petermelias/assetman)
-[![Montly Downloads](https://pypip.in/d/assetman/badge.png?month)](https://pypi.python.org/pypi/assetman)
-[![Download format](https://pypip.in/format/assetman/badge.png)](https://pypi.python.org/pypi/assetman/)
+[![Montly Downloads](https://img.shields.io/pypi/dm/assetman.svg?month=)](https://pypi.python.org/pypi/assetman)
+[![Download format](https://img.shields.io/pypi/format/assetman.svg)](https://pypi.python.org/pypi/assetman/)
 [![Coverage Status](https://coveralls.io/repos/petermelias/assetman/badge.png?branch=master)](https://coveralls.io/r/petermelias/assetman?branch=master)
-[![License](https://pypip.in/license/assetman/badge.png)](https://pypi.python.org/pypi/assetman/)
+[![License](https://img.shields.io/pypi/l/assetman.svg)](https://pypi.python.org/pypi/assetman/)
 
 
 ## Usage
